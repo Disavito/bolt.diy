@@ -13,6 +13,14 @@ dotenv.config();
 
 export default defineConfig((config) => {
   return {
+    // --- AÑADE ESTA SECCIÓN ---
+    server: {
+      host: true, // Importante para que funcione en un contenedor
+      allowedHosts: [
+        'n8n-bolt.mv7mvl.easypanel.host'
+      ]
+    },
+    // --------------------------
     define: {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     },
