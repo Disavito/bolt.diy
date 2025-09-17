@@ -13,6 +13,7 @@ concurrency:
 permissions:
   packages: write
   contents: read
+  id-token: write
 
 env:
   REGISTRY: ghcr.io
@@ -56,7 +57,7 @@ jobs:
         with:
           context: .
           platforms: linux/amd64,linux/arm64
-          target: bolt-ai-production
+          target: runtime
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
